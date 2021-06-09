@@ -1,0 +1,297 @@
+en:
+  vagrant_share:
+    deprecation:
+      share:
+        classic: |-
+          Vagrant Share using the `classic` driver is deprecated.
+          The `ngrok` driver is now the default driver and will
+          be supported into the future. For more information on
+          using the `ngrok` driver for Vagant Share, please refer
+          to the documentation:
+
+            https://www.vagrantup.com/docs/share/
+        ngrok: |-
+          Vagrant Share now defaults to using the `ngrok` driver.
+          The `classic` driver has been deprecated.
+
+          For more information about the `ngrok` driver, please
+          refer to the documentation:
+
+            https://www.vagrantup.com/docs/share/
+      connect:
+        classic: |-
+          Vagrant Connect using the `classic` driver is deprecated.
+          The `ngrok` driver is now the default driver and will be
+          supported into the future. For more information on using
+          the `ngrok` driver for Vagant Share, please refer to the
+          documentation:
+
+            https://www.vagrantup.com/docs/share/
+        ngrok: |-
+          Vagrant Connect now defaults to using the `ngrok` driver.
+          The `classic` driver has been deprecated.
+
+          For more information about the `ngrok` driver, please
+          refer to the documentation:
+
+            https://www.vagrantup.com/docs/share/
+    box_up_to_date: |-
+      Already up-to-date.
+    box_update: |-
+      An update was found! Will update box...
+    box_update_check: |-
+      Checking for proxy VM updates...
+    connect_info: |-
+      Vagrant has successfully connected to the remote shared machine!
+      You can either use the machine IP above to talk to it like any other
+      computer, or you can configure your software to use a standard
+      SOCKS5 proxy at the address above. With either method, you'll be able
+      to communicate with the shared machine.
+
+      If you're having trouble communicating, verify that the shared machine
+      has given you access to the specified ports.
+
+      Press Ctrl-C to stop connection.
+    connect_info_socks_only: |-
+      Vagrant has successfully connected to the remote shared machine!
+      Since you specified `--disable-static-ip`, you can only communicate
+      with this remote machine by using the SOCKS5 proxy specified above.
+
+      If you're having trouble communicating, verify that the shared machine
+      has given you access to the specified ports.
+
+      Press Ctrl-C to stop connection.
+    connect_ip: |-
+      Machine IP: %{ip}
+    connect_invalid_password: |-
+      Invalid password. Please try again.
+    connect_password_prompt: |-
+      Password for the private key:
+    connect_password_required: |-
+      The SSH key to connect to this share is encrypted. You will require
+      the password entered when creating to share to decrypt it. Verify you
+      access to this password before continuing.
+
+      Press enter to continue, or Ctrl-C to exit now.
+    connect_restricted_ports: |-
+      This share restricts the ports you can access! You can access the
+      ports listed below:
+    connect_socks_port: |-
+      SOCKS address: 127.0.0.1:%{port}
+    connect_ssh_available: |-
+      This share allows easy SSH access. Just run this command with
+      the `--ssh` flag to automatically SSH into the remote machine.
+    connecting: |-
+      Connecting to: %{name}
+    detecting: |-
+      Detecting network information for machine...
+    creating: |-
+      Creating Vagrant Share session...
+    creating_name: |-
+      Share will be at: %{name}
+    executing_ssh: |-
+      Executing SSH...
+    generating_ssh_key: |-
+      Generating new SSH key...
+    inserting_ssh_key: |-
+      Inserting generated SSH key into machine...
+    local_address_only: |-
+      Note: With the local address (127.0.0.1), Vagrant Share can only
+      share any ports you have forwarded. Assign an IP or address to your
+      machine to expose all TCP ports. Consult the documentation
+      for your provider ('%{provider}') for more information.
+    looking_up: |-
+      Loading share '%{name}'...
+    password_not_long_enough: |-
+      The supplied password is not long enough. OpenSSL requires a minimum of
+      four (4) characters for the password. Please use a longer password and
+      try again.
+    provider_unsupported: |-
+      The provider this machine is backed by ('%{provider}') doesn't
+      support telling Vagrant Share what address it is reachable at.
+      Vagrant Share will attempt to use 127.0.0.1 with forwarded ports
+      to find the address. Please contact the provider maintainer to fix
+      this error.
+    proxy_error: |-
+      Error: %{message}
+    ssh_flag_missing: |-
+      SSH options were specified on the command line without the
+      `--ssh` flag. You must specify this flag if you wish for these
+      other options to have any effect. Please add that flag or remove
+      the other options.
+    ssh_no_http: |-
+      An HTTP port couldn't be detected! Since SSH is enabled, this is
+      not an error. If you want to share both SSH and HTTP, please set
+      an HTTP port with `--http`.
+    ssh_password_confirm_prompt: |-
+      Repeat the password to confirm:
+    ssh_password_prompt: |-
+      Please enter a password to encrypt the key:
+    started: |-
+      Your Vagrant Share is running! Name: %{name}
+    started_connect: |-
+      Connect is running!
+    started_restricted: |-
+      You're sharing your Vagrant machine in "restricted" mode. This
+      means that only the ports listed above will be accessible by
+      other users (either via the web URL or using `vagrant connect --driver classic`).
+    started_ssh: |-
+      You're sharing with SSH access. This means that another user
+      simply has to run `vagrant connect --driver classic --ssh %{name}`
+      to SSH to your Vagrant machine.
+    started_ssh_encrypted: |-
+      Because you encrypted your SSH private key with a password,
+      the other user will be prompted for this password when they
+      run `vagrant connect --driver classic --ssh`. Please share this password with them
+      in some secure way.
+    starting_proxy_vm: |-
+      Starting a VM for a static connect IP. This will take a few moments.
+    verifying_login: |-
+      Checking authentication and authorization...
+
+    ngrok:
+      started_ssh: |-
+        You're sharing with SSH access. This means that another can SSH to
+        your Vagrant machine by running:
+
+          vagrant connect --ssh %{name}
+      started_full: |-
+        You're sharing full access to your Vagrant machine. This means that
+        another user can have access to your Vagrant machine by running:
+
+          vagrant connect %{name}
+      connection_lost: |-
+        Connection to the remote share '%{name}' has been lost!
+    errors:
+      api_error: |-
+        There was an error returned by the Vagrant Cloud server. The
+        error message is shown below:
+
+        %{message}
+      auth_expired: |-
+        You were logged in but your access token is no longer valid.
+        Please log in again using `vagrant login`.
+      auth_required: |-
+        You must logged in to Vagrant Cloud in order to use `vagrant share`.
+        Please log in with `vagrant login`.
+      connect_name_is_url: |-
+        The name of the share given to `vagrant connect` is a URL. Please
+        only pass in the name of the share. For example, if the URL of a share
+        is "hungry-lion-1234.vagrantshare.com", then you should invoke
+        the connect command with `vagrant connect hungry-lion-1234 --driver classic`.
+      detect_http_common_port_failed: |-
+        Vagrant was unable to detect an HTTP port for your machine.
+
+        Your Vagrant machine is reporting that it is accessible at
+        the address: '%{target}'.
+
+        Vagrant tries some common HTTP ports to try to find a listening
+        HTTP server, but all the attempts failed. There are a few options
+        to fix this error:
+
+          1. Turn off HTTP sharing with the `--disable-http` flag.
+
+          2. Have your HTTP server listen on port 80, 3000, 4567, 8000,
+             or 8080. Vagrant will automatically try these.
+
+          3. Specify an HTTP port explicitly to vagrant share with the
+             `--http` flag.
+
+          4. Make sure that the address above along with your HTTP port
+             are accessible from this machine. Sometimes firewalls or
+             binding to the wrong IP cause it to become inaccessible.
+
+      detect_http_forwarded_port_failed: |-
+        Vagrant was unable to detect an HTTP port for your machine.
+
+        Because your machine appears to have no static IP associated with
+        it, Vagrant scans through your forwarded ports, looking for one
+        that responds to an HTTP request. Vagrant couldn't find any
+        functioning HTTP port!
+
+        There are a few options to fix this error:
+
+          1. Create a forwarded port pointing to your HTTP server inside
+             your Vagrant machine.
+
+          2. Specify an HTTP port manually with `--http` to this command.
+
+          3. Assign a non-local address to your machine. This may or may
+             not be possible depending on what provider you're using.
+
+          4. Make sure that the HTTP server is up and running within
+             your machine. Vagrant share won't start until it is
+             reachable.
+
+      ip_could_not_auto_acquire: |-
+        Vagrant could not automatically find an IP that is available
+        for the connection! Please try again or manually specify an IP
+        with the `--static-ip` flag. If this error persists, please contact
+        support.
+      ip_in_use: |-
+        The requested IP '%{ip}' is already in use by some other machine.
+        Please choose another IP and try again.
+      ip_invalid: |-
+        The requested static IP '%{ip}' is not a valid IP address.
+        Please use a valid IP address (such as 172.16.0.12) and try again.
+      machine_not_ready: |-
+        The Vagrant environment you're attempting to share appears to
+        not be running. Please verify that it is running and try again.
+      ngrok_unavailable: |-
+        The executable 'ngrok' Vagrant is trying to run was not found
+        in the PATH variable. The 'ngrok' executable is required to
+        run Vagrant share. If 'ngrok' is currently installed in a
+        non-standard location, append that location to the PATH
+        variable and run this command again. If 'ngrok' is not
+        currently installed, it can be downloaded from the ngrok
+        website:
+
+          https://ngrok.com/download
+      proxy_exit: |-
+        The sharing proxy exited with a non-zero exit status! This represents
+        an erroneous exit and likely a bug. Please report this issue.
+      proxy_machine_bad_provider: |-
+        Your default provider '%{provider}' is not supported as a way to
+        start the VM that creates the static IP for vagrant connect.
+        For just this command, please set your default provider to
+        use either VirtualBox or VMware Fusion/Workstation.
+      server_not_set: |-
+        No Vagrant Cloud server has been set. This must be set for
+        Vagrant Share to work.
+      share_not_found: |-
+        The share '%{name}' could not be found!
+
+        Verify that the name you used is correct. If it is indeed correct,
+        make sure that you have permissions to view this share.
+      ssh_cant_insert_key: |-
+        Vagrant doesn't know how to insert new SSH keys into a machine
+        running the guest system: '%{guest}'. Please use a guest OS that
+        is supported or consider reporting a bug to help Vagrant support
+        this OS.
+      ssh_not_ready: |-
+        The machine is reporting that it is not ready for SSH access.
+        Vagrant can't share SSH access without the machine running and
+        ready to accept SSH connections. Please verify the machine is
+        running.
+      ssh_not_shared: |-
+        The share '%{name}' hasn't enabled SSH sharing!
+        Ask the person sharing their Vagrant environment to specify
+        the --ssh flag when running `vagrant share`.
+
+        Another possibility is that the share did previously allow sharing,
+        but the one-time use private key has been used already. Please ask
+        the person sharing their environment to reshare. If you intend on
+        using SSH multiple times, make sure the share side is not specifying
+        the `--ssh-once` flag.
+      ssh_host_port_not_detected: |-
+        A port forwarding mapping to the SSH port on the guest ('%{guest_port}')
+        could not be found. Because we're sharing 127.0.0.1, vagrant share
+        must have a forwarded port to access SSH.
+
+        To fix this problem, either create a forwarded port to the SSH port,
+        or change your configuration to allow vagrant share to share
+        a static address to the machine.
+      ssh_port_not_detected: |-
+        The SSH port for the machine could not be detected. This is
+        rare and should not happen. Please specify the SSH port manually
+        using the `--ssh-port` option.

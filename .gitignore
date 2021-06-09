@@ -1,0 +1,8 @@
+.vagrant/
+/localbin/
+/proxy-vm/*.box
+/proxy-vm/Gemfile.lock
+/proxy-vm/proxycore.iso
+/proxy-vm/packer_cache/
+/Vagrantfile
+bins.tar.gz

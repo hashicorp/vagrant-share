@@ -1,0 +1,65 @@
+{
+  "builders": [
+    {
+      "boot_wait": "5s",
+      "guest_additions_mode": "disable",
+      "guest_os_type": "Linux",
+      "iso_url": "proxycore.iso",
+      "iso_checksum": "none",
+      "shutdown_command": "sudo poweroff",
+      "ssh_password": "vagrant",
+      "ssh_username": "tc",
+      "type": "virtualbox-iso",
+      "headless": true,
+      "vboxmanage": [
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--memory",
+          "256"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--cpus",
+          "1"
+        ]
+      ]
+    },
+    {
+      "boot_wait": "5s",
+      "guest_os_type": "linux",
+      "iso_url": "proxycore.iso",
+      "iso_checksum": "none",
+      "shutdown_command": "sudo poweroff",
+      "ssh_password": "vagrant",
+      "ssh_username": "tc",
+      "type": "vmware-iso",
+      "headless": true,
+      "vmx_data": {
+        "memsize": "256",
+        "numvcpus": "1"
+      }
+    }
+  ],
+  "post-processors": [
+    {
+      "include": [
+        "proxycore.iso"
+      ],
+      "output": "proxycore_{{.Provider}}.box",
+      "type": "vagrant",
+      "vagrantfile_template": "vagrantfile.tpl"
+    },
+    {
+      "type": "vagrant-cloud",
+      "box_tag": "hashicorp/vagrant-share",
+      "access_token": "{{user `cloud_token`}}",
+      "version": "{{user `version`}}"
+    }
+  ],
+  "variables": {
+    "cloud_token": "{{env `VAGRANT_CLOUD_TOKEN`}}",
+    "version": "{{env `VAGRANT_SHARE_BOX_VERSION`}}"
+  }
+}

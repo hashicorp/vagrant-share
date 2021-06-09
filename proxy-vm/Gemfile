@@ -1,0 +1,13 @@
+source 'https://rubygems.org'
+
+if File.exist?(File.expand_path("../../../vagrant", __FILE__))
+  gem "vagrant", path: "../../vagrant"
+elsif ENV["VAGRANT_PATH"]
+  gem "vagrant", path: ENV["VAGRANT_PATH"]
+else
+  gem "vagrant", git: "git://github.com/mitchellh/vagrant.git"
+end
+
+group :plugins do
+  gem "vagrant-share", path: "../"
+end
