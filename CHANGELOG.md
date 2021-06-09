@@ -1,4 +1,13 @@
-## 1.1.12 (UNRELEASED)
+## 2.2.0 (June 9, 2021)
+
+FEATURES:
+
+- Open source plugin, remove encoding
+
+IMPROVEMENTS:
+
+- Add constraints on share box used by local version
+- Use updated commands within share guest
 
 ## 1.1.11 (July 30, 2020)
 
