@@ -9,13 +9,14 @@ Gem::Specification.new do |s|
   s.homepage      = "http://www.vagrantup.com"
   s.summary       = "Provides share functionality to Vagrant"
   s.description   = "Provides share functionality to Vagrant"
-  s.license       = "Mozilla Public License 2.0"
+  s.license       = "MPL-2.0"
 
   s.add_dependency "rest-client", ">= 1.6.0"
   s.add_dependency "vagrant", ">= 1.9.2"
 
   root_path      = File.dirname(__FILE__)
   all_files      = Dir.chdir(root_path) { Dir.glob("lib/**/*") }
+  all_files      += ["version.txt"]
   all_files.concat(Dir.chdir(root_path) { Dir.glob("locales/**/*") })
   all_files.reject! { |file| [".", ".."].include?(File.basename(file)) }
 
