@@ -6,3 +6,4 @@
 /proxy-vm/packer_cache/
 /Vagrantfile
 bins.tar.gz
+Gemfile.lock
