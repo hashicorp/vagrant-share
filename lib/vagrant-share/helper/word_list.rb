@@ -1,3 +1,6 @@
+# Copyright (c) HashiCorp, Inc.
+# SPDX-License-Identifier: MPL-2.0
+
 module VagrantPlugins
   module Share
     # Contains helper methods that the command uses.
